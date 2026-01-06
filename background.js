@@ -1,4 +1,4 @@
-const VERSION = "2.7.32";
+const VERSION = "2.8.0";
 console.log("[YouTube Playlist Adder] Loaded v"+VERSION+" (background.js)");
 // background.js
 const LOG = (...a) => console.log("[YouTube Playlist Adder]", ...a);

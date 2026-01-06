@@ -57,5 +57,5 @@ Click YouTube's native Add to queue to also add the video to your selected playl
 **Author:** Scott Carpenter  
 **Email:** scott@payforstay.com  
 **License:** MIT  
-**Version:** 2.7.36
+**Version:** 2.8.0
 

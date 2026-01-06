@@ -1,7 +1,7 @@
 
 // [YouTube Playlist Adder] v2.7.20 content.js
 (function(){
-  const VERSION = "2.7.36";
+  const VERSION = "2.8.0";
 console.log("[YouTube Playlist Adder] Loaded v"+VERSION+" (content.js)");
 
 // ---- Toast helpers (isolated in shadow root) ----

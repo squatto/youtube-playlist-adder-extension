@@ -1,4 +1,4 @@
-const VERSION = "2.7.36";
+const VERSION = "2.8.0";
 console.log("[YouTube Playlist Adder] Loaded v"+VERSION+" (popup.js)");
 const LOG = (...a) => console.log("[YouTube Playlist Adder]", ...a);
 
