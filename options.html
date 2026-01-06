@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>YouTube Playlist Adder – Options</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 20px; }
+      h2 { margin: 0 0 16px; }
+      .row { margin-bottom: 12px; }
+      label { display: block; margin-bottom: 6px; font-weight: 600; }
+      input, button, select { font-size: 14px; padding: 6px 8px; }
+      .muted { color: #666; font-size: 12px; }
+      .flex { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+      .section { padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 14px; }
+      .right { float: right; }
+      .ok { color: #16a34a; }
+      .warn { color: #b45309; }
+      .err { color: #dc2626; }
+      select { min-width: 360px; }
+    </style>
+  </head>
+  <body>
+    <h2>YouTube Playlist Adder <span style="font-size:12px;opacity:.7">v<span id="ypa-version-number"></span>
+</span></h2>
+
+    <div class="section">
+      <div class="row flex">
+        <div><strong>Account:</strong> <span id="acct">Loading…</span></div>
+        <button id="reauth">Re‑authenticate</button>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="row flex">
+        <label for="playlistSelect">Your playlists</label>
+        <select id="playlistSelect"></select>
+        <button id="refresh">Refresh</button>
+        <button id="save">Save selection</button>
+      </div>
+      <div class="row muted" id="selStatus"></div>
+    </div>
+
+    <div class="row muted">
+      Tip: Click <em>Add to queue</em> to also add the video to your selected playlist.</div>
+
+    <script src="options.js"></script>
+</div>
+</body>
+</html>

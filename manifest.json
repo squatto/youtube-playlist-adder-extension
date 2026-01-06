@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Playlist Adder",
+  "version": "2.7.36",
+  "description": "Click YouTube\u2019s native Add to queue to also add the video to your selected playlist. Simple and reliable.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "identity",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "161256568556-vpvl6b49djnbsa8cgjtabf3anq9fdckt.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/youtube",
+      "openid",
+      "email",
+      "profile"
+    ]
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "YouTube Playlist Adder",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "author": "Scott Carpenter <scott@payforstay.com>"
+}
