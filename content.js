@@ -350,8 +350,13 @@ function onQueue(evt, source){
           lastShortsClick = { id:null, ts:0 };
         }
 
-        log(`Added to playlist: ${selectedPlaylistName} (video ${id})`);
-        showToast(`Added to ${selectedPlaylistName}`, TOAST_MS);
+        if(resp.duplicate){
+          log(`Already in playlist: ${selectedPlaylistName} (video ${id})`);
+          showToast(`Already in ${selectedPlaylistName}`, TOAST_MS);
+        }else{
+          log(`Added to playlist: ${selectedPlaylistName} (video ${id})`);
+          showToast(`Added to ${selectedPlaylistName}`, TOAST_MS);
+        }
       }else{
         err("Add failed:", resp);
       }

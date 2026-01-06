@@ -62,6 +62,20 @@ async function listPlaylists(interactive = false) {
   return items;
 }
 
+async function videoExistsInPlaylist(playlistId, videoId, interactive = false) {
+  const token = await getAccessToken(interactive);
+  const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&videoId=${videoId}&maxResults=1`;
+  const res = await fetch(url, {
+    headers: { Authorization: "Bearer " + token }
+  });
+  if (!res.ok) {
+    const t = await res.text().catch(() => "");
+    throw new Error(`playlistItems check ${res.status} ${t}`);
+  }
+  const data = await res.json();
+  return (data.items || []).length > 0;
+}
+
 async function addToPlaylist(playlistId, videoId, interactive = false) {
   const token = await getAccessToken(interactive);
   const res = await fetch("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet", {
@@ -106,7 +120,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           break;
         }
         case "addToPlaylist": {
-          await addToPlaylist(request.playlistId, request.videoId, false).catch(async () => addToPlaylist(request.playlistId, request.videoId, true));
+          const exists = await videoExistsInPlaylist(request.playlistId, request.videoId, false)
+            .catch(async () => videoExistsInPlaylist(request.playlistId, request.videoId, true));
+          if (exists) {
+            sendResponse({ ok: true, duplicate: true });
+            break;
+          }
+          await addToPlaylist(request.playlistId, request.videoId, false)
+            .catch(async () => addToPlaylist(request.playlistId, request.videoId, true));
           sendResponse({ ok: true });
           break;
         }
