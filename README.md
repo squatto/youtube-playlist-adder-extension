@@ -24,7 +24,7 @@ Click YouTube's native Add to queue to also add the video to your selected playl
 3. Toggle **Developer mode** (top right corner).
 4. Click **Load unpacked** and select the folder containing this extension.
 5. Authorize with YouTube and select a playlist in the extension options.
-6. Visit [https://www.youtube.com](YouTube).
+6. Visit [YouTube](https://www.youtube.com)
 7. Click the "Add to queue" button on any video and the video will automatically be added to your selected playlist.
 
 ---
